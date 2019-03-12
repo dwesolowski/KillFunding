@@ -2,7 +2,7 @@
 options:
   enable-prefix: true
 messages:
-  prefix: '&6[&4KillFund&6]&r'
+  prefix: '&8[&4KillFund&8]&r'
   no-permission: '&4You do not have permission to use this command!'
   kill-message: '&aYou killed {victim} and received ${reward-money}'
   kill-low-balance-message: '&aYou killed {victim} and received only ${reward-money} due to a low account balance'

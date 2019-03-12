@@ -137,12 +137,12 @@ public class KillFunding extends JavaPlugin implements Listener {
         final String noPermission = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("messages.no-permission"));
         if (commandLabel.equalsIgnoreCase("kfreload")) {
             if (sender instanceof Player) {
-                final Player player = (Player) sender;
-                if (player.hasPermission("killfund.reload")) {
+                final Player p = (Player) sender;
+                if (p.hasPermission("killfund.reload")) {
                     sender.sendMessage(ChatColor.GREEN + "The plugin has been reloaded!");
                     this.reloadConfig();
-                } else if (!player.hasPermission("killfund.reload")) {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', noPermission));
+                } else if (!p.hasPermission("killfund.reload")) {
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', noPermission));
                 }
             } else {
                 sender.sendMessage(ChatColor.GREEN + "The plugin has been reloaded!");
