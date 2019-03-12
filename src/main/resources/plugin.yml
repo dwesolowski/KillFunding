@@ -1,0 +1,16 @@
+name: KillFunding
+version: ${version}
+main: com.github.dwesolowski.killfunding.KillFunding
+api-version: 1.13
+
+commands:
+  kfreload:
+    usage: /<command>
+    description: "Reloads the config file!"
+    permission: killfund.reload
+# Allowed defaults are: true, false, op, not op
+# If nodes does not exist, permission defaults to op.
+permissions:
+  killfund.reload:
+    description: "Gives access to the reload config command."
+    default: op

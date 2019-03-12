@@ -1,0 +1,14 @@
+# config.yml
+options:
+  enable-prefix: true
+messages:
+  prefix: '&6[&4KillFund&6]&r'
+  no-permission: '&4You do not have permission to use this command!'
+  kill-message: '&aYou killed {victim} and received ${reward-money}'
+  kill-low-balance-message: '&aYou killed {victim} and received only ${reward-money} due to a low account balance'
+  kill-no-balance-message: '&aYou killed {victim} and received nothing due to no account balance'
+  death-message: '&aYou got killed by {killer} and lost ${lost-money}'
+groups:
+  default:
+    amount: 10
+    permission: killfund.groups.default
