@@ -95,7 +95,7 @@ public class KillFunding extends JavaPlugin implements Listener {
                     if (vHasPermission && !victim.getName().equals(killer.getName())) {
                         final EconomyResponse takeMoney = KillFunding.economy.withdrawPlayer((OfflinePlayer) victim, accountCredits);
                         if (takeMoney.transactionSuccess() && accountCredits != 0) {
-                            final String money = Double.toString(accountCredits);
+                            final String money = String.format ("%,.2f", accountCredits);
                             if (this.getConfig().getString("options.enable-prefix").equals("true")) {
                                 victim.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + " " + this.getConfig().getString("messages.death-message").replace("{killer}", victim.getName()).replace("{killer}", killer.getName()).replace("{lost-money}", money)));
                             } else {
@@ -106,7 +106,7 @@ public class KillFunding extends JavaPlugin implements Listener {
                     if (kHasPermission && !killer.getName().equals(victim.getName())) {
                         final EconomyResponse giveMoney = KillFunding.economy.depositPlayer((OfflinePlayer) killer, accountCredits);
                         if (giveMoney.transactionSuccess()) {
-                            final String money = Double.toString(accountCredits);
+                            final String money = String.format ("%,.2f", accountCredits);
                             if (vHasBalance) {
                                 if (this.getConfig().getString("options.enable-prefix").equals("true")) {
                                     killer.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + " " + this.getConfig().getString("messages.kill-message").replace("{victim}", victim.getName()).replace("{killer}", killer.getName()).replace("{reward-money}", money)));
