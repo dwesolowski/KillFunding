@@ -11,6 +11,9 @@ commands:
 # Allowed defaults are: true, false, op, not op
 # If nodes does not exist, permission defaults to op.
 permissions:
+  killfund.groups.default:
+    description: "default plugin permissions defined in config.yml"
+    default: true
   killfund.reload:
     description: "Gives access to the reload config command."
     default: op
