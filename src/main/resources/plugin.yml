@@ -4,10 +4,9 @@ main: com.github.dwesolowski.killfunding.KillFunding
 api-version: 1.13
 
 commands:
-  kfreload:
-    usage: /<command>
+  killfund:
     description: "Reloads the config file!"
-    permission: killfund.reload
+    permission: killfund.admin
 # Allowed defaults are: true, false, op, not op
 # If nodes does not exist, permission defaults to op.
 permissions:
