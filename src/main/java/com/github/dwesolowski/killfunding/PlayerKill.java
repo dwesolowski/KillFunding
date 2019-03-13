@@ -33,20 +33,10 @@ public class PlayerKill implements Listener {
         if (victim instanceof Player) {
             final Entity killer = e.getEntity().getKiller();
             if (killer != null) {
-                boolean kHasPermission = false;
-                boolean vHasPermission = false;
-                double accountCredits = 0;
+                double accountCredits = this.plugin.getConfig().getInt("options.default-amount");
                 for (final String s : this.plugin.getConfig().getConfigurationSection("groups").getKeys(false)) {
-                    if (victim.hasPermission(this.plugin.getConfig().getString("groups." + s + ".permission"))) {
+                    if (!killer.isOp() && killer.hasPermission(this.plugin.getConfig(). getString("groups." + s + ".permission"))) {
                         accountCredits = this.plugin.getConfig().getInt("groups." + s + ".amount");
-                        vHasPermission = true;
-                        break;
-                    }
-                }
-                for (final String s : this.plugin.getConfig().getConfigurationSection("groups").getKeys(false)) {
-                    if (killer.hasPermission(this.plugin.getConfig(). getString("groups." + s + ".permission"))) {
-                        accountCredits = this.plugin.getConfig().getInt("groups." + s + ".amount");
-                        kHasPermission = true;
                         break;
                     }
                 }
@@ -60,7 +50,7 @@ public class PlayerKill implements Listener {
                         accountCredits = vBalance;
                         vHasBalance = false;
                     }
-                    if (vHasPermission && !victim.getName().equals(killer.getName())) {
+                    if (!victim.getName().equals(killer.getName())) {
                         final EconomyResponse takeMoney = KillFunding.economy.withdrawPlayer((OfflinePlayer) victim, accountCredits);
                         if (takeMoney.transactionSuccess() && accountCredits != 0) {
                             final String money = String.format("%,.2f", accountCredits);
@@ -71,7 +61,7 @@ public class PlayerKill implements Listener {
                             }
                         }
                     }
-                    if (kHasPermission && !killer.getName().equals(victim.getName())) {
+                    if (!killer.getName().equals(victim.getName())) {
                         final EconomyResponse giveMoney = KillFunding.economy.depositPlayer((OfflinePlayer) killer, accountCredits);
                         if (giveMoney.transactionSuccess()) {
                             final String money = String.format("%,.2f", accountCredits);

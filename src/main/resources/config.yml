@@ -2,6 +2,8 @@
 options:
   enable-prefix: true
   enable-percentage: false
+  # If 'enable-percentage' above is 'true' the amount will be a percentage of the victims balance ( if enabled 10 would be 10% or $10 if false )
+  default-amount: 10
 messages:
   prefix: '&8[&4KillFund&8]&r'
   no-permission: '&4You do not have permission to use this command!'
@@ -9,8 +11,14 @@ messages:
   kill-low-balance-message: '&aYou killed {victim} and received only ${reward-money} due to a low account balance'
   kill-no-balance-message: '&aYou killed {victim} and received nothing due to no account balance'
   death-message: '&aYou got killed by {killer} and lost ${lost-money}'
+# You can setup permission groups below to use other values, see the examples below - oP players will always use the 'default-amount' above!
 groups:
   default:
     # If 'enable-percentage' above is 'true' the amount will be a percentage of the victims balance ( if enabled 10 would be 10% or $10 if false )
-    amount: 10
+    # Any permission names can be uses, below are only examples.
+    amount: 20
     permission: killfund.groups.default
+  other:
+    # If 'enable-percentage' above is 'true' the amount will be a percentage of the victims balance ( if enabled 10 would be 10% or $10 if false )
+    amount: 30
+    permission: killfund.groups.other
