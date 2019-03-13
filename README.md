@@ -9,6 +9,7 @@ Credit players money when they kill others!
 - Customizable Messages.
 - Give players money for killing other players
 - Make players lose money when killed by another player
+- Use a defined amount or percentage.
 - Configurable config.yml file
 - Permissions and Group support
 

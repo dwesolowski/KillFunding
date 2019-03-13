@@ -1,6 +1,7 @@
 # config.yml
 options:
   enable-prefix: true
+  enable-percentage: false
 messages:
   prefix: '&8[&4KillFund&8]&r'
   no-permission: '&4You do not have permission to use this command!'
@@ -10,5 +11,6 @@ messages:
   death-message: '&aYou got killed by {killer} and lost ${lost-money}'
 groups:
   default:
+    # If 'enable-percentage' above is 'true' the amount will be a percentage of the victims balance ( if enabled 10 would be 10% or $10 if false )
     amount: 10
     permission: killfund.groups.default

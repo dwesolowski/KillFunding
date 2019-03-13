@@ -44,13 +44,16 @@ public class PlayerKill implements Listener {
                     }
                 }
                 for (final String s : this.plugin.getConfig().getConfigurationSection("groups").getKeys(false)) {
-                    if (killer.hasPermission(this.plugin.getConfig().getString("groups." + s + ".permission"))) {
+                    if (killer.hasPermission(this.plugin.getConfig(). getString("groups." + s + ".permission"))) {
                         accountCredits = this.plugin.getConfig().getInt("groups." + s + ".amount");
                         kHasPermission = true;
                         break;
                     }
                 }
                 double vBalance = KillFunding.economy.getBalance((OfflinePlayer) victim);
+                if (this.plugin.getConfig().getString("options.enable-percentage").equals("true")) {
+                    accountCredits = vBalance * accountCredits / 100;
+                }
                 if (vBalance > 0) {
                     boolean vHasBalance = true;
                     if (vBalance <= accountCredits) {
